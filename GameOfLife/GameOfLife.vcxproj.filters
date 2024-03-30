@@ -69,7 +69,7 @@
     <ClCompile Include="Guarana.cpp">
       <Filter>Pliki źródłowe\Rosliny.cpp</Filter>
     </ClCompile>
-    <ClCompile Include="BarszSosnowskiego.cpp">
+    <ClCompile Include="BarszczSosnowskiego.cpp">
       <Filter>Pliki źródłowe\Rosliny.cpp</Filter>
     </ClCompile>
     <ClCompile Include="WilczeJagody.cpp">
@@ -119,7 +119,7 @@
     <ClInclude Include="WilczeJagody.h">
       <Filter>Pliki nagłówkowe\Rosliny.h</Filter>
     </ClInclude>
-    <ClInclude Include="BarszSosnowskiego.h">
+    <ClInclude Include="BarszczSosnowskiego.h">
       <Filter>Pliki nagłówkowe\Rosliny.h</Filter>
     </ClInclude>
   </ItemGroup>

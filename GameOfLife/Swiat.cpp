@@ -28,10 +28,6 @@ void Swiat::rysujSwiat() {
 void Swiat::SetBoard(int x, int y, char znak) {
     board[x][y] = znak;
 }
-void InizjalizujSwiat() {
-    new Zolw(2, 3);
-    
-}
 Swiat::~Swiat() {
     for (int i = 0; i < sizeX; ++i) {
         delete[] board[i];

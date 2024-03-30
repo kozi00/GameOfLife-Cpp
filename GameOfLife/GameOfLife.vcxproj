@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BarszSosnowskiego.cpp" />
+    <ClCompile Include="BarszczSosnowskiego.cpp" />
     <ClCompile Include="WilczeJagody.cpp" />
     <ClCompile Include="Zwierze.cpp" />
     <ClCompile Include="Antylopa.cpp" />
@@ -145,7 +145,7 @@
     <ClCompile Include="Swiat.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BarszSosnowskiego.h" />
+    <ClInclude Include="BarszczSosnowskiego.h" />
     <ClInclude Include="WilczeJagody.h" />
     <ClInclude Include="Zwierze.h" />
     <ClInclude Include="Antylopa.h" />

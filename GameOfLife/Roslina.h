@@ -3,9 +3,9 @@
 class Roslina : public Organizm
 {
 public:
-	Roslina(int sila, int inicjatywa, int pozycjaX, int pozycjaY);
-	virtual void akcja();
-	virtual void kolizja(Organizm* organizm);
+	Roslina(int pozycjaX, int pozycjaY, int sila, char oznaczenie);
+	virtual void akcja() = 0;
+	virtual void kolizja(Organizm* organizm) override;
 };
 
 

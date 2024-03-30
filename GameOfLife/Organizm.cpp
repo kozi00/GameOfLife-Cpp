@@ -8,6 +8,18 @@ Organizm::Organizm(int pozycjaX, int pozycjaY, int sila, int inicjatywa, char oz
 	this->inicjatywa = inicjatywa;
 	this->oznaczenie = oznaczenie;
 }
-void Organizm::rysowanie() {
-	swiat->SetBoard(pozycjaX, pozycjaY, oznaczenie);
+void Organizm::rysowanie() const{
+		swiat->SetBoard(pozycjaX, pozycjaY, oznaczenie);
+}
+int Organizm::GetPozycjaX() const{
+	return pozycjaX;
+}
+int Organizm::GetPozycjaY() const {
+	return pozycjaY;
+}
+char Organizm::GetOznaczenie()const {
+	return oznaczenie;
+}
+void Organizm::DodajDoSwiata(Swiat* swiat){
+	this->swiat = swiat;
 }

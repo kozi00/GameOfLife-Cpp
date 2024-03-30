@@ -3,9 +3,9 @@
 class Zolw: public Zwierze
 {
 private:
-	const char oznaczenie = 'Z';
-	const int sila = 2;
-	const int inicjatywa = 1;
+	static const char oznaczenie = 'Z';
+	static const int sila = 2;
+	static const int inicjatywa = 1;
 
 public:
 	Zolw(int pozycjaX, int pozycjaY);
