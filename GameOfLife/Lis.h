@@ -1,5 +1,6 @@
 #pragma once
 #include "Zwierze.h"
+
 class Lis : public Zwierze
 {
 private:

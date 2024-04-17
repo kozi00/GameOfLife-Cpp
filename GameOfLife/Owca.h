@@ -1,5 +1,6 @@
 #pragma once
 #include "Zwierze.h"
+
 class Owca : public Zwierze
 {
 private:
@@ -9,6 +10,5 @@ private:
 
 public:
 	Owca(int pozycjaX, int pozycjaY);
-	void akcja() override;
 };
 

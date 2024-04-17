@@ -3,7 +3,4 @@
 Owca::Owca(int pozycjaX, int pozycjaY) : Zwierze(pozycjaX, pozycjaY, sila, inicjatywa, oznaczenie) {
 }
 
-void Owca::akcja() {
-
-}
 
