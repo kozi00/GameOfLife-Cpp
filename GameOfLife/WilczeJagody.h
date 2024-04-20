@@ -8,6 +8,6 @@ private:
 
 public:
 	WilczeJagody(int pozycjaX, int pozycjaY);
-	void akcja() override;
+	void Kolizja(Organizm* atakujacy) override;
 };
 

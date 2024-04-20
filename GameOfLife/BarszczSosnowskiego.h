@@ -8,6 +8,7 @@ private:
 
 public:
 	BarszczSosnowskiego(int pozycjaX, int pozycjaY);
-	void akcja() override;
+	void Akcja() override;
+	void Kolizja(Organizm* atakujacy) override;
 };
 

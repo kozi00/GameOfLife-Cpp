@@ -7,19 +7,23 @@ class Organizm;
 class Swiat
 {
 private:
-	int sizeX, sizeY;
-	char **board;
+	int rozmiarX, rozmiarY;
+	int liczbaTur;
+	char **plansza;
 	std::vector<Organizm*> organizmy;
 public:
-	Swiat(int sizeX,int sizeY);
+	Swiat(int rozmiarX,int rozmiarY);
 	void Inicjalizuj();
-	void rysujSwiat();
-	void wykonajTure();
+	void RysujSwiat();
+	void WykonajTure();
 	Organizm* SprawdzPole(int x, int y);
-	int GetSizeX() const;
-	int GetSizeY() const;
-	std::vector<Organizm*> GetOrganizmy() const;
+	int GetRozmiarX() const;
+	int GetRozmiarY() const;
+	int GetLiczbaTur() const;
+	std::vector<Organizm*>& GetOrganizmy();
 	void UmiescNaPolu(int x, int y, Organizm* organizm);
+	void Zapisz();
+	void Wczytaj();
 	~Swiat();
 };
 

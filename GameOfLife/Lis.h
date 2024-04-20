@@ -5,11 +5,13 @@ class Lis : public Zwierze
 {
 private:
 	static const char oznaczenie = 'L';
-	static const int sila = 3;
 	static const int inicjatywa = 7;
+	int sila = 3;
+	int wiek;
 
 public:
 	Lis(int pozycjaX, int pozycjaY);
-	void akcja() override;
+	Lis(int pozycjaX, int pozycjaY, int sila, int wiek);
+	void Akcja() override;
 };
 

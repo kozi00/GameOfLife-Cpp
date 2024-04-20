@@ -8,6 +8,5 @@ private:
 
 public:
 	Trawa(int pozycjaX, int pozycjaY);
-	void akcja() override;
 };
 

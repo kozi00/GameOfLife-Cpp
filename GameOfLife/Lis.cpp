@@ -2,10 +2,13 @@
 #include "Swiat.h"
 #include <iostream>
 
-Lis::Lis(int pozycjaX, int pozycjaY) : Zwierze(pozycjaX, pozycjaY, sila, inicjatywa, oznaczenie) {
+Lis::Lis(int pozycjaX, int pozycjaY) : Zwierze(pozycjaX, pozycjaY, 3, inicjatywa, oznaczenie) {
+	this->wiek = 0;
 }
-
-void Lis::akcja() {
+Lis::Lis(int pozycjaX, int pozycjaY, int sila, int wiek) : Zwierze(pozycjaX, pozycjaY, sila, inicjatywa, oznaczenie, wiek) {
+	this->wiek = wiek;
+}
+void Lis::Akcja() {
 	struct Pole {
 		std::pair<int, int> ruch;
 		bool sprawdzone;//unikniecie nieskonczonej petli
@@ -23,14 +26,20 @@ void Lis::akcja() {
 		i = rand() % 4;
 		nowaPozycjaX = pole[i].ruch.first + this->GetPozycjaX();
 		nowaPozycjaY = pole[i].ruch.second + this->GetPozycjaY();
-		
-		Organizm* przeciwnyOrganizm = swiat->SprawdzPole(nowaPozycjaX, nowaPozycjaY);
-		if (przeciwnyOrganizm != nullptr && Organizm::PorownajSile(przeciwnyOrganizm, this)) {//sprawdz czy przeciwnik jest silniejszy
+		lisMozeIsc = true;
+
+		if (nowaPozycjaX < 0 || nowaPozycjaX >= GetSwiat()->GetRozmiarX() || nowaPozycjaY < 0 || nowaPozycjaY >= GetSwiat()->GetRozmiarY()) {//sprawdz czy miesci sie w planszy
+			pole[i].sprawdzone = true;
 			lisMozeIsc = false;
+			continue;
 		}
 		
-
-		pole[i].sprawdzone = true;
+		Organizm* przeciwnyOrganizm = GetSwiat()->SprawdzPole(nowaPozycjaX, nowaPozycjaY);
+		if (przeciwnyOrganizm != nullptr && przeciwnyOrganizm->GetSila() > this->GetSila()) {//sprawdz czy przeciwnik jest silniejszy
+			pole[i].sprawdzone = true;
+			lisMozeIsc = false;
+		}
+		liczbaSprawdzonychPol = 0;
 		for (Pole p : pole) {//jesli wszystkie pola zostaly sprawdzone to znaczy ze lis jest miedzy silniejszymi organizmami i nie moze wykonac ruchu
 			if (p.sprawdzone) { liczbaSprawdzonychPol++; }
 		}
@@ -39,9 +48,9 @@ void Lis::akcja() {
 			nowaPozycjaY = this->GetPozycjaY();
 			break;
 		}
-	} while (lisMozeIsc == false && (nowaPozycjaX <= 0 || nowaPozycjaX >= swiat->GetSizeX() || nowaPozycjaY <= 0 && nowaPozycjaY >= swiat->GetSizeY()));
-
-	swiat->UmiescNaPolu(nowaPozycjaX, nowaPozycjaY, this);
+	} while (!lisMozeIsc);
+	std::cout << *this << " idzie na pole ( " << nowaPozycjaX << ", " << nowaPozycjaY << " )\n";
+	GetSwiat()->UmiescNaPolu(nowaPozycjaX, nowaPozycjaY, this);
 }
 
 

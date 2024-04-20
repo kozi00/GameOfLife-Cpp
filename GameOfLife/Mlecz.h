@@ -8,6 +8,6 @@ private:
 
 public:
 	Mlecz(int pozycjaX, int pozycjaY);
-	void akcja() override;
+	void Akcja() override;
 };
 

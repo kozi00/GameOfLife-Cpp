@@ -4,7 +4,9 @@
 #include <iostream>
 Zwierze::Zwierze(int pozycjaX, int pozycjaY, int sila, int inicjatywa, char oznaczenie):Organizm(pozycjaX, pozycjaY, sila, inicjatywa, oznaczenie) {
 }
-void Zwierze::akcja() {
+Zwierze::Zwierze(int pozycjaX, int pozycjaY, int sila, int inicjatywa, char oznaczenie, int wiek) :Organizm(pozycjaX, pozycjaY, sila, inicjatywa, oznaczenie, wiek) {
+}
+void Zwierze::Akcja() {
 	int i, nowaPozycjaX, nowaPozycjaY;
 
 	std::pair<int, int> ruch[4] = { {1,0}, { -1, 0}, {0 , 1}, {0, -1} };
@@ -12,10 +14,28 @@ void Zwierze::akcja() {
 		 i = rand() % 4;
 		 nowaPozycjaX = ruch[i].first + this->GetPozycjaX();
 		 nowaPozycjaY = ruch[i].second + this->GetPozycjaY();
-	} while (nowaPozycjaX <= 0 || nowaPozycjaX >= swiat->GetSizeX() || nowaPozycjaY <= 0 && nowaPozycjaY >= swiat->GetSizeY());
+	} while (nowaPozycjaX < 0 || nowaPozycjaX >= GetSwiat()->GetRozmiarX() || nowaPozycjaY < 0 || nowaPozycjaY >= GetSwiat()->GetRozmiarY());
 
-	swiat->UmiescNaPolu(nowaPozycjaX, nowaPozycjaY, this);
+	std::cout << *this << " idzie na pole ( " << nowaPozycjaX << ", " << nowaPozycjaY << " )\n";
+	GetSwiat()->UmiescNaPolu(nowaPozycjaX, nowaPozycjaY, this);
 }
-void Zwierze::kolizja(Organizm* organizm) {
-
+void Zwierze::Kolizja(Organizm* atakujacy) {
+	if (this->GetOznaczenie() == atakujacy->GetOznaczenie()) {//urodzenie
+		std::pair<int,int> wolnePole = this->ZnajdzWolnePole();
+		if (wolnePole.first != -1 && wolnePole.second != -1) {
+			this->Rozmnoz(wolnePole.first, wolnePole.second);
+		}
+		std::cout << *this << " rozmnozyl sie z " << *atakujacy << std::endl;
+	}
+	else {
+		if (this->GetSila() <= atakujacy->GetSila()) {
+			atakujacy->ZmienPozycje(this->GetPozycjaX(), this->GetPozycjaY());
+			this->UsunZeSwiata(GetSwiat());
+			std::cout << *atakujacy << " zabil " << *this << std::endl;
+		}
+		else {
+			atakujacy->UsunZeSwiata(GetSwiat());
+			std::cout << *this << " zabil " << *atakujacy << std::endl;
+		}
+	}
 }
