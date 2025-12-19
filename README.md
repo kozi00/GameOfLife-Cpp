@@ -2,7 +2,7 @@
 
 A turn-based life simulation project implemented in C++, featuring a 2D grid world () populated by various animals and plants with unique behaviors.
 
-## 📝 Project Overview
+## Project Overview
 
 The simulator models an ecosystem where organisms interact based on their **strength**, **initiative**, and **age**. The world is rendered in the console using ASCII characters, and the simulation progresses turn-by-turn.
 
@@ -20,7 +20,7 @@ The simulator models an ecosystem where organisms interact based on their **stre
 * **Reproduction**: Animals can breed, and plants can spread to adjacent empty tiles.
 * **Persistence**: Features a Save/Load system to store the state of the world in a file.
 
-## 🐾 Organisms
+##  Organisms
 
 | Type | Symbol | Behavior |
 | --- | --- | --- |
@@ -33,14 +33,14 @@ The simulator models an ecosystem where organisms interact based on their **stre
 
 ---
 
-## 🛠 Controls & UI
+##  Controls & UI
 
 * **Arrow Keys**: Move Human.
 * **Special Key**: Activate Human's unique ability.
 * **Enter/Any Key**: Proceed to the next turn.
 * **Event Log**: A dedicated section of the console displays fight results, deaths, and special events.
 
-## 🚀 How to Run
+##  How to Run
 
 1. Compile the source code using your preferred compiler (e.g., `g++`).
 2. Run the executable.
